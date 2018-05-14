@@ -12,9 +12,12 @@ class SportTypeViewController: UIViewController {
 
     @IBOutlet weak var sportTypeLabel: UILabel!
     @IBOutlet weak var bgPicture: UIImageView!
+
     @IBOutlet weak var walkButton: UIButton!
+    
+    @IBOutlet weak var marathonButton: UIButton!
+    @IBOutlet weak var hikeButton: UIButton!
     @IBOutlet weak var jogButton: UIButton!
-    @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var choosingLabel: UILabel!
     @IBOutlet weak var progressPhoto: UIImageView!
     

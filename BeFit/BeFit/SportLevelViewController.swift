@@ -14,12 +14,11 @@ class SportLevelViewController: UIViewController {
     @IBOutlet weak var choosingLabel: UILabel!
     
     @IBOutlet weak var bgPicture: UIImageView!
-    @IBOutlet weak var begginerButton: UIButton!
-    
-    @IBOutlet weak var proffesionalButton: UIButton!
+
+    @IBOutlet weak var beginnerButton: UIButton!
     
     @IBOutlet weak var topClassButton: UIButton!
-    
+    @IBOutlet weak var professionalButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
