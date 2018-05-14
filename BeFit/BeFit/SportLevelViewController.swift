@@ -9,7 +9,17 @@
 import UIKit
 
 class SportLevelViewController: UIViewController {
-
+    @IBOutlet weak var sportLevelLabel: UILabel!
+    @IBOutlet weak var progrssPhoto: UIImageView!
+    @IBOutlet weak var choosingLabel: UILabel!
+    
+    @IBOutlet weak var bgPicture: UIImageView!
+    @IBOutlet weak var begginerButton: UIButton!
+    
+    @IBOutlet weak var proffesionalButton: UIButton!
+    
+    @IBOutlet weak var topClassButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

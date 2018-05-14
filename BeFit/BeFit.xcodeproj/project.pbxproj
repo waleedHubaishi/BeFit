@@ -13,6 +13,7 @@
 		A40A903420A0A60400575AF6 /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903320A0A60400575AF6 /* TipsViewController.swift */; };
 		A40A903620A0A62F00575AF6 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903520A0A62F00575AF6 /* StatsTableViewCell.swift */; };
 		A40A903820A0A6BC00575AF6 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903720A0A6BC00575AF6 /* TipsTableViewCell.swift */; };
+		A4AF5FD820A9B25000E44B9D /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF5FD720A9B25000E44B9D /* DataClass.swift */; };
 		A4DF7759208CD49200781F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF7758208CD49200781F28 /* AppDelegate.swift */; };
 		A4DF775E208CD49200781F28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF775C208CD49200781F28 /* Main.storyboard */; };
 		A4DF7761208CD49200781F28 /* BeFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4DF775F208CD49200781F28 /* BeFit.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 		A40A903320A0A60400575AF6 /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		A40A903520A0A62F00575AF6 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		A40A903720A0A6BC00575AF6 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
+		A4AF5FD720A9B25000E44B9D /* DataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClass.swift; sourceTree = "<group>"; };
 		A4DF7755208CD49200781F28 /* BeFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DF7758208CD49200781F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DF775D208CD49200781F28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		A4DF7757208CD49200781F28 /* BeFit */ = {
 			isa = PBXGroup;
 			children = (
+				A4AF5FD720A9B25000E44B9D /* DataClass.swift */,
 				A4DF7758208CD49200781F28 /* AppDelegate.swift */,
 				A40A902D20A0A55F00575AF6 /* SportTypeViewController.swift */,
 				A40A902F20A0A57000575AF6 /* SportLevelViewController.swift */,
@@ -283,6 +286,7 @@
 				A4DF7761208CD49200781F28 /* BeFit.xcdatamodeld in Sources */,
 				A40A902E20A0A55F00575AF6 /* SportTypeViewController.swift in Sources */,
 				A40A903820A0A6BC00575AF6 /* TipsTableViewCell.swift in Sources */,
+				A4AF5FD820A9B25000E44B9D /* DataClass.swift in Sources */,
 				A40A903620A0A62F00575AF6 /* StatsTableViewCell.swift in Sources */,
 				A4DF7759208CD49200781F28 /* AppDelegate.swift in Sources */,
 			);

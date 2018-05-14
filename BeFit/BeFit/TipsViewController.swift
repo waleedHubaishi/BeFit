@@ -9,7 +9,12 @@
 import UIKit
 
 class TipsViewController: UIViewController {
-
+    
+    @IBOutlet weak var tipsLabel: UILabel!
+    
+    @IBOutlet weak var tipsTable: UITableView!
+    @IBOutlet weak var choosingLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

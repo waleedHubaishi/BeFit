@@ -9,7 +9,12 @@
 import UIKit
 
 class ExpetedStatsViewController: UIViewController {
-
+    @IBOutlet weak var expectedStatsLabel: UILabel!
+    
+    @IBOutlet weak var choosingPhoto: UILabel!
+    @IBOutlet weak var progressPhoto: UIImageView!
+    @IBOutlet weak var statsTable: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
