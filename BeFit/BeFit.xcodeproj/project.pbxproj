@@ -13,6 +13,10 @@
 		A40A903420A0A60400575AF6 /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903320A0A60400575AF6 /* TipsViewController.swift */; };
 		A40A903620A0A62F00575AF6 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903520A0A62F00575AF6 /* StatsTableViewCell.swift */; };
 		A40A903820A0A6BC00575AF6 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A903720A0A6BC00575AF6 /* TipsTableViewCell.swift */; };
+		A49D99DF20ACDB8600C9F225 /* SportSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D99DE20ACDB8600C9F225 /* SportSelections.swift */; };
+		A49D99E320AD9D6C00C9F225 /* heartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D99E020AD9D5000C9F225 /* heartIcon.png */; };
+		A49D99E420AD9D6C00C9F225 /* fireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D99E120AD9D5E00C9F225 /* fireIcon.png */; };
+		A49D99E520AD9D6C00C9F225 /* nextArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D99E220AD9D6C00C9F225 /* nextArrow.png */; };
 		A4AF5FD820A9B25000E44B9D /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF5FD720A9B25000E44B9D /* DataClass.swift */; };
 		A4AF5FDD20A9D56200E44B9D /* oneGreenCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AF5FDA20A9D56100E44B9D /* oneGreenCircle.png */; };
 		A4AF5FDE20A9D56200E44B9D /* threeGreenCircles.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AF5FDB20A9D56100E44B9D /* threeGreenCircles.png */; };
@@ -53,6 +57,10 @@
 		A40A903320A0A60400575AF6 /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		A40A903520A0A62F00575AF6 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		A40A903720A0A6BC00575AF6 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
+		A49D99DE20ACDB8600C9F225 /* SportSelections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportSelections.swift; sourceTree = "<group>"; };
+		A49D99E020AD9D5000C9F225 /* heartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartIcon.png; sourceTree = "<group>"; };
+		A49D99E120AD9D5E00C9F225 /* fireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireIcon.png; sourceTree = "<group>"; };
+		A49D99E220AD9D6C00C9F225 /* nextArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextArrow.png; sourceTree = "<group>"; };
 		A4AF5FD720A9B25000E44B9D /* DataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClass.swift; sourceTree = "<group>"; };
 		A4AF5FDA20A9D56100E44B9D /* oneGreenCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oneGreenCircle.png; sourceTree = "<group>"; };
 		A4AF5FDB20A9D56100E44B9D /* threeGreenCircles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = threeGreenCircles.png; sourceTree = "<group>"; };
@@ -103,6 +111,9 @@
 		A4AF5FD920A9D53E00E44B9D /* photos */ = {
 			isa = PBXGroup;
 			children = (
+				A49D99E120AD9D5E00C9F225 /* fireIcon.png */,
+				A49D99E020AD9D5000C9F225 /* heartIcon.png */,
+				A49D99E220AD9D6C00C9F225 /* nextArrow.png */,
 				A4AF5FE020A9D78B00E44B9D /* On_Cloudflyer_Apparel.jpg */,
 				A4AF5FE120A9D78C00E44B9D /* On_Cloudventure Peak .jpg */,
 				A4AF5FE220A9D78C00E44B9D /* On_Women_Apparel.jpg */,
@@ -138,6 +149,7 @@
 			children = (
 				A4AF5FD920A9D53E00E44B9D /* photos */,
 				A4AF5FD720A9B25000E44B9D /* DataClass.swift */,
+				A49D99DE20ACDB8600C9F225 /* SportSelections.swift */,
 				A4DF7758208CD49200781F28 /* AppDelegate.swift */,
 				A40A902D20A0A55F00575AF6 /* SportTypeViewController.swift */,
 				A40A902F20A0A57000575AF6 /* SportLevelViewController.swift */,
@@ -285,9 +297,12 @@
 				A4AF5FDF20A9D56200E44B9D /* twoGreenCircles.png in Resources */,
 				A4AF5FE320A9D78C00E44B9D /* On_Cloudflyer_Apparel.jpg in Resources */,
 				A4AF5FDD20A9D56200E44B9D /* oneGreenCircle.png in Resources */,
+				A49D99E520AD9D6C00C9F225 /* nextArrow.png in Resources */,
 				A4AF5FE420A9D78C00E44B9D /* On_Cloudventure Peak .jpg in Resources */,
 				A4AF5FDE20A9D56200E44B9D /* threeGreenCircles.png in Resources */,
+				A49D99E420AD9D6C00C9F225 /* fireIcon.png in Resources */,
 				A4DF775E208CD49200781F28 /* Main.storyboard in Resources */,
+				A49D99E320AD9D6C00C9F225 /* heartIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40A903020A0A57000575AF6 /* SportLevelViewController.swift in Sources */,
+				A49D99DF20ACDB8600C9F225 /* SportSelections.swift in Sources */,
 				A40A903220A0A5DC00575AF6 /* ExpetedStatsViewController.swift in Sources */,
 				A40A903420A0A60400575AF6 /* TipsViewController.swift in Sources */,
 				A4DF7761208CD49200781F28 /* BeFit.xcdatamodeld in Sources */,
