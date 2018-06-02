@@ -10,6 +10,8 @@ import UIKit
 
 class TipsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tipLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

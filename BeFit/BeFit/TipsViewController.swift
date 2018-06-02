@@ -8,22 +8,84 @@
 
 import UIKit
 
-class TipsViewController: UIViewController {
+class TipsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tipsLabel: UILabel!
     
+    @IBOutlet weak var bgPhoto: UIImageView!
     @IBOutlet weak var tipsTable: UITableView!
     @IBOutlet weak var choosingLabel: UILabel!
     
+    var data = DataClass()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tipsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tipsTable.backgroundColor = UIColor.white
+        self.tipsTable.dataSource=self
+        self.tipsTable.delegate=self
+        
+        tipsTable.backgroundView = nil
+        tipsTable.backgroundColor = UIColor.clear
+        
+        bgPhoto.layer.cornerRadius = 10
+        bgPhoto.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(data.tips.count != 0){
+            return data.tips.count
+        }
+        else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 120.0;//Choose your custom row height
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell", for: indexPath) as! TipsTableViewCell
+        cell.backgroundColor = UIColor.clear
+        
+        let screenSize = UIScreen.main.bounds
+        let separatorHeight = CGFloat(2.0)
+        let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: cell.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
+        additionalSeparator.backgroundColor = UIColor.gray
+        cell.addSubview(additionalSeparator)
+
+        cell.selectionStyle = .none
+        
+        cell.tipLabel.text = data.tips[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //indexOfSelectedRow = (indexPath.row)
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! TipsViewController
+        //secondViewController.food = foodList[indexOfSelectedRow]
+        //secondViewController.indexOfSelectedElement = indexOfSelectedRow
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
 

@@ -49,8 +49,8 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(data.tips.count != 0){
-            return data.tips.count
+        if(data.expectedStats.count != 0){
+            return data.expectedStats.count
         }
         else{
             return 0
@@ -76,10 +76,10 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         additionalSeparator.backgroundColor = UIColor.gray
         cell.addSubview(additionalSeparator)
         
-        cell.expectedBPMValue.text = "120"
-        cell.exoectedBurnedCalValue.text = "310"
-        cell.sessionPeriodValue.text = "1:45 Hours"
-        cell.totalDistanceValue.text = "0.6 Km"
+        cell.expectedBPMValue.text = data.expectedStats[indexPath.row]["bpm"]
+        cell.exoectedBurnedCalValue.text = data.expectedStats[indexPath.row]["cal"]
+        cell.sessionPeriodValue.text = data.expectedStats[indexPath.row]["period"]
+        cell.totalDistanceValue.text = data.expectedStats[indexPath.row]["distance"]
         
         
         
