@@ -24,3 +24,5 @@ class TipsTableViewCell: UITableViewCell {
     }
 
 }
+
+

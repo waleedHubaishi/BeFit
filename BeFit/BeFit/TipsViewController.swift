@@ -37,8 +37,15 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         bgPhoto.layer.cornerRadius = 10
         bgPhoto.clipsToBounds = true
-        
         data.determineTheTips(sportPrefrences:sportPrefrences)
+
+        
+        tipsTable.rowHeight = UITableViewAutomaticDimension
+        tipsTable.estimatedRowHeight = 44
+        
+        tipsTable.reloadData()
+        
+        
     }
     
     
@@ -63,11 +70,6 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 120.0;//Choose your custom row height
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //cell.backgroundColor = UIColor.clear
     }
@@ -76,11 +78,11 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell", for: indexPath) as! TipsTableViewCell
         cell.backgroundColor = UIColor.clear
         
-        let screenSize = UIScreen.main.bounds
+        /*let screenSize = UIScreen.main.bounds
         let separatorHeight = CGFloat(2.0)
         let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: cell.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
         additionalSeparator.backgroundColor = UIColor.gray
-        cell.addSubview(additionalSeparator)
+        cell.addSubview(additionalSeparator)*/
         cell.selectionStyle = .none
         cell.tipLabel.text = data.tips[indexPath.row]
         cell.tipLabel.sizeToFit()
