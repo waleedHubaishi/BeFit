@@ -17,9 +17,14 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var choosingLabel: UILabel!
     
     var data = DataClass()
+    var sportPrefrences = SportSelections()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(sportPrefrences.sportlevel)
+        print(sportPrefrences.sportType)
 
         // Do any additional setup after loading the view.
         self.tipsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -32,7 +37,11 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         bgPhoto.layer.cornerRadius = 10
         bgPhoto.clipsToBounds = true
+        
+        data.determineTheTips(sportPrefrences:sportPrefrences)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,21 +81,18 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: cell.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
         additionalSeparator.backgroundColor = UIColor.gray
         cell.addSubview(additionalSeparator)
-
         cell.selectionStyle = .none
-        
         cell.tipLabel.text = data.tips[indexPath.row]
+        cell.tipLabel.sizeToFit()
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //indexOfSelectedRow = (indexPath.row)
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! TipsViewController
-        //secondViewController.food = foodList[indexOfSelectedRow]
-        //secondViewController.indexOfSelectedElement = indexOfSelectedRow
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        
     }
+    
+    
     
 
     /*

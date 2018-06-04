@@ -63,7 +63,7 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,8 +91,7 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexOfSelectedRow = (indexPath.row)
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "tips") as! TipsViewController
-        //secondViewController.food = foodList[indexOfSelectedRow]
-        //secondViewController.indexOfSelectedElement = indexOfSelectedRow
+        secondViewController.sportPrefrences = sportPrefrences
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
