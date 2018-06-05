@@ -21,18 +21,22 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var data = DataClass()
     var sportPrefrences = SportSelections()
     
+    //the refrence to refer to the Firbase data base
     var ref:FIRDatabaseReference!
     
-    var handle:FIRDatabaseHandle!
-    var snap:FIRDataSnapshot!
-    
     func fetchData(){
-
+        
+        /////Hike
+        //get the Hike Dictionary value
        let hikeRef =  ref.child("Hike")
+        
+        //inside the Hike value, get the value of the key Beginner
         let hikeRefSecMyRef =  hikeRef.child("Beginner")
 
         hikeRefSecMyRef.observeSingleEvent(of: .value, with: { snapshot in
     
+            //convert the the values inside beginner into String array, and assign to the correct
+            //corresponding array
             let a = (snapshot.value as! NSArray as Array).filter {$0 is String}
             for tip in a{
                 self.data.tipsBegginerHike.append(tip as? String ?? "")
@@ -159,25 +163,29 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    //we have to use viewWillAppear to make sure that fetchData will run before the determineTheTips function call inside the viewDidLoad
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+
+    
     override func viewDidAppear(_ animated: Bool) {
+        //send the prefrences selected in the previous two screens to the determine finction in the DataClass determine kind of tips to load into the tips universal array. this should happend after calling fethData() method
         data.determineTheTips(sportPrefrences:sportPrefrences)
+        
+        //reload the table with the new values
         tipsTable.reloadData()
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
-        fetchData()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //initlize the refrence
         ref = FIRDatabase.database().reference()
        
-
-
         // Do any additional setup after loading the view.
+        
         self.tipsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tipsTable.backgroundColor = UIColor.white
         self.tipsTable.dataSource=self

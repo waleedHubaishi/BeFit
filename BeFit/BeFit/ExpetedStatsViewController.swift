@@ -17,6 +17,8 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var statsTable: UITableView!
     
     var sportPrefrences = SportSelections()
+    
+    //this data instance is used to get the data of the expected results
     var data = DataClass()
     
     var indexOfSelectedRow:Int = 0
@@ -30,6 +32,7 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         self.statsTable.dataSource=self
         self.statsTable.delegate=self
         
+        //make the table transparent
         statsTable.backgroundView = nil
         statsTable.backgroundColor = UIColor.clear
         
@@ -59,6 +62,8 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
+        //custome fixed height because all the cells in this table have the same number of elements
+        //and therefore the same height
         return 120.0;//Choose your custom row height
     }
     
@@ -76,13 +81,13 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         additionalSeparator.backgroundColor = UIColor.gray
         cell.addSubview(additionalSeparator)
         
+        //get the elements from the dictionary to assign them to the diffrent labels inside the cell
         cell.expectedBPMValue.text = data.expectedStats[indexPath.row]["bpm"]
         cell.exoectedBurnedCalValue.text = data.expectedStats[indexPath.row]["cal"]
         cell.sessionPeriodValue.text = data.expectedStats[indexPath.row]["period"]
         cell.totalDistanceValue.text = data.expectedStats[indexPath.row]["distance"]
         
-        
-        
+        //remove the highlighted selection color
         cell.selectionStyle = .none
         
         return cell

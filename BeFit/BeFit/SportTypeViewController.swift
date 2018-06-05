@@ -48,10 +48,15 @@ class SportTypeViewController: UIViewController {
     
     @IBAction func threeButtonsAction(_ sender: UIButton) {
         
+        //get the button clicked by its identifier
         let sportTypeName =  sender.accessibilityIdentifier
+        
+        //assign the string identifier in the Sport Selections instance as the sport type
         sportPrefrences.sportType = sportTypeName
         
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "sportLevel") as! SportLevelViewController
+        
+        //assign the instance values to the next screen
         secondViewController.sportPrefrences = sportPrefrences
         self.navigationController?.pushViewController(secondViewController, animated: true)
  }

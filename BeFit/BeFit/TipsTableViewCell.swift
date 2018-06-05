@@ -10,6 +10,7 @@ import UIKit
 
 class TipsTableViewCell: UITableViewCell {
 
+    //inside the tips table cells, we have only one element which will show the tip
     @IBOutlet weak var tipLabel: UILabel!
     
     override func awakeFromNib() {

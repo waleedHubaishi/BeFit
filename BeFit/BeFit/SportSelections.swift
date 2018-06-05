@@ -8,6 +8,7 @@
 
 import Foundation
 
+//this instance of this class are passed through all the screens to determine which tips array to load into the universal tips array
 class SportSelections{
     var sportlevel:String!
     var sportType:String!
