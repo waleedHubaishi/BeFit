@@ -10,6 +10,8 @@ import UIKit
 
 class StatsTableViewCell: UITableViewCell {
 
+    
+    //those are the diffrent uielements inside the expected stats table view cells 
     @IBOutlet weak var sessionPeriodLabel: UILabel!
     @IBOutlet weak var sessionPeriodValue: UILabel!
     
