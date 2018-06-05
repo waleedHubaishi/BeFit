@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class TipsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,13 +20,162 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var data = DataClass()
     var sportPrefrences = SportSelections()
+    
+    var ref:FIRDatabaseReference!
+    
+    var handle:FIRDatabaseHandle!
+    var snap:FIRDataSnapshot!
+    
+    func fetchData(){
 
+       let hikeRef =  ref.child("Hike")
+        let hikeRefSecMyRef =  hikeRef.child("Beginner")
+
+        hikeRefSecMyRef.observeSingleEvent(of: .value, with: { snapshot in
+    
+            let a = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in a{
+                self.data.tipsBegginerHike.append(tip as? String ?? "")
+            }
+        })
+        
+
+        let hikeThirdMyRef =  hikeRef.child("Professional")
+        
+        hikeThirdMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsProffesionalHike.append(tip as? String ?? "")
+            }
+        })
+        
+        let hikeFourthMyRef =  hikeRef.child("TopClass")
+        
+        hikeFourthMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let c = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in c{
+                self.data.tipsTopClassHike.append(tip as? String ?? "")
+            }
+        })
+ 
+        
+        /////// Jog
+        let jogRef =  ref.child("Jog")
+        let jogRefSecMyRef =  jogRef.child("Beginner")
+        
+        jogRefSecMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsBegginerJog.append(tip as? String ?? "")
+            }
+        })
+        
+        let jogThirdMyRef =  jogRef.child("Professional")
+        
+        jogThirdMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsProffesionalJog.append(tip as? String ?? "")
+            }
+        })
+        
+        let jogFourthMyRef =  jogRef.child("TopClass")
+        
+        jogFourthMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsTopClassJog.append(tip as? String ?? "")
+            }
+        })
+        
+        /////// Marathon
+        let marathonRef =  ref.child("Marathon")
+        let marathonRefSecMyRef =  marathonRef.child("Beginner")
+        
+        marathonRefSecMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsBegginerMarathon.append(tip as? String ?? "")
+            }
+        })
+        
+        let marathonThirdMyRef =  marathonRef.child("Professional")
+        
+        marathonThirdMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsProffesionalMarathon.append(tip as? String ?? "")
+            }
+        })
+        
+        let marathonFourthMyRef =  marathonRef.child("TopClass")
+        
+        marathonFourthMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsTopClassMarathon.append(tip as? String ?? "")
+            }
+        })
+
+        /////// Walk
+        let walkRef =  ref.child("Walk")
+        let walkRefSecMyRef =  walkRef.child("Beginner")
+        
+        walkRefSecMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsBegginerWalk.append(tip as? String ?? "")
+            }
+        })
+        
+        let walkThirdMyRef =  walkRef.child("Professional")
+        
+        walkThirdMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let c = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in c{
+                self.data.tipsProffesionalWalk.append(tip as? String ?? "")
+            }
+        })
+        
+        let walkFourthMyRef =  walkRef.child("TopClass")
+        
+        walkFourthMyRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            let b = (snapshot.value as! NSArray as Array).filter {$0 is String}
+            for tip in b{
+                self.data.tipsTopClassWalk.append(tip as? String ?? "")
+            }
+        })
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        data.determineTheTips(sportPrefrences:sportPrefrences)
+        tipsTable.reloadData()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        fetchData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(sportPrefrences.sportlevel)
-        print(sportPrefrences.sportType)
+        ref = FIRDatabase.database().reference()
+       
+
 
         // Do any additional setup after loading the view.
         self.tipsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -37,17 +188,11 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         bgPhoto.layer.cornerRadius = 10
         bgPhoto.clipsToBounds = true
-        data.determineTheTips(sportPrefrences:sportPrefrences)
 
-        
         tipsTable.rowHeight = UITableViewAutomaticDimension
         tipsTable.estimatedRowHeight = 44
         
-        tipsTable.reloadData()
-        
-        
     }
-    
     
 
     override func didReceiveMemoryWarning() {
@@ -94,9 +239,7 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    
-    
-
+ 
     /*
     // MARK: - Navigation
 
