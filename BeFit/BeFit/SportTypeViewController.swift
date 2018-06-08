@@ -79,6 +79,7 @@ class SportTypeViewController: UIViewController {
         self.navigationController?.pushViewController(secondViewController, animated: true)
  }
     
+    //this empty function si just to recieve the segue coming from the last screen attached to the function of button "Back to start"
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
     }

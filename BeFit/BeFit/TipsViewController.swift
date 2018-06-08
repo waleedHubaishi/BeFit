@@ -246,12 +246,6 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell", for: indexPath) as! TipsTableViewCell
         cell.backgroundColor = UIColor.clear
-        
-        /*let screenSize = UIScreen.main.bounds
-        let separatorHeight = CGFloat(2.0)
-        let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: cell.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
-        additionalSeparator.backgroundColor = UIColor.gray
-        cell.addSubview(additionalSeparator)*/
         cell.selectionStyle = .none
         cell.tipLabel.text = data.tips[indexPath.row]
         cell.tipLabel.sizeToFit()
@@ -259,13 +253,12 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    //navigate to the first controller, it must be an exit segue to preven showing the back button on the navigation bar
     @IBAction func goBackToStart(){
         self.performSegue(withIdentifier: "backToStart", sender: self)
 
     }
 
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
