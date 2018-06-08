@@ -32,6 +32,10 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         self.statsTable.dataSource=self
         self.statsTable.delegate=self
         
+        let logo = UIImage(named: "beFit.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         //make the table transparent
         statsTable.backgroundView = nil
         statsTable.backgroundColor = UIColor.clear
@@ -80,7 +84,7 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         let screenSize = UIScreen.main.bounds
         let separatorHeight = CGFloat(2.0)
         let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: cell.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
-        additionalSeparator.backgroundColor = UIColor.gray
+        additionalSeparator.backgroundColor = UIColor.black
         cell.addSubview(additionalSeparator)
         
         //get the elements from the dictionary to assign them to the diffrent labels inside the cell

@@ -29,6 +29,10 @@ class SportLevelViewController: UIViewController {
         professionalButton.layer.cornerRadius = 10
         topClassButton.layer.cornerRadius = 10
         
+        let logo = UIImage(named: "beFit.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         beginnerButton.clipsToBounds = true
         professionalButton.clipsToBounds = true
         topClassButton.clipsToBounds = true

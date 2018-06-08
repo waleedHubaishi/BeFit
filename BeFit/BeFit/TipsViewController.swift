@@ -17,6 +17,9 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var bgPhoto: UIImageView!
     @IBOutlet weak var tipsTable: UITableView!
     @IBOutlet weak var choosingLabel: UILabel!
+    @IBOutlet weak var backToStart: UIButton!
+    var timerForShowScrollIndicator: Timer?
+
     
     var data = DataClass()
     var sportPrefrences = SportSelections()
@@ -175,7 +178,13 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //reload the table with the new values
         tipsTable.reloadData()
+        
+        startTimerForShowScrollIndicator()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopTimerForShowScrollIndicator()
     }
     
     override func viewDidLoad() {
@@ -191,6 +200,10 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tipsTable.dataSource=self
         self.tipsTable.delegate=self
         
+        let logo = UIImage(named: "beFit.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         tipsTable.backgroundView = nil
         tipsTable.backgroundColor = UIColor.clear
         
@@ -199,6 +212,9 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tipsTable.rowHeight = UITableViewAutomaticDimension
         tipsTable.estimatedRowHeight = 44
+        
+        backToStart.layer.cornerRadius = 10
+        backToStart.clipsToBounds = true
         
     }
     
@@ -243,8 +259,36 @@ class TipsViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    @IBAction func goBackToStart(){
+        self.performSegue(withIdentifier: "backToStart", sender: self)
+
+    }
+
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    
+    //source: https://stackoverflow.com/a/39914962
+    /// Show always scroll indicator in table view
+    @objc func showScrollIndicatorsInContacts() {
+        UIView.animate(withDuration: 0.0001) {
+            self.tipsTable.flashScrollIndicators()
+        }
+    }
+    
+    /// Start timer for always show scroll indicator in table view
+    func startTimerForShowScrollIndicator() {
+        self.timerForShowScrollIndicator = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.showScrollIndicatorsInContacts), userInfo: nil, repeats: true)
+    }
+    
+    /// Stop timer for always show scroll indicator in table view
+    func stopTimerForShowScrollIndicator() {
+        self.timerForShowScrollIndicator?.invalidate()
+        self.timerForShowScrollIndicator = nil
     }
     
  

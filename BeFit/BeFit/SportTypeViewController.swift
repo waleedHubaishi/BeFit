@@ -35,6 +35,13 @@ class SportTypeViewController: UIViewController {
         jogButton.clipsToBounds = true
         marathonButton.clipsToBounds = true
         
+        
+
+        
+        let logo = UIImage(named: "beFit.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Sport Type", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 
         
@@ -43,6 +50,14 @@ class SportTypeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3882352941, green: 0.3882352941, blue: 0.3882352941, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.3137254902, green: 0.8901960784, blue: 0.7607843137, alpha: 1)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,7 +79,10 @@ class SportTypeViewController: UIViewController {
         self.navigationController?.pushViewController(secondViewController, animated: true)
  }
     
-
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

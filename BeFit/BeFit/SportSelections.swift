@@ -12,4 +12,7 @@ import Foundation
 class SportSelections{
     var sportlevel:String!
     var sportType:String!
+    
+    
+
 }
