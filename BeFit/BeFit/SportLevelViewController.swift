@@ -32,6 +32,8 @@ class SportLevelViewController: UIViewController {
         beginnerButton.clipsToBounds = true
         professionalButton.clipsToBounds = true
         topClassButton.clipsToBounds = true
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Sport Level", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
        
         
         bgPicture.layer.cornerRadius = 10

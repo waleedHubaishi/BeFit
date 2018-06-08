@@ -36,6 +36,8 @@ class ExpetedStatsViewController: UIViewController, UITableViewDelegate, UITable
         statsTable.backgroundView = nil
         statsTable.backgroundColor = UIColor.clear
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Expected Stats", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
         bgPhoto.layer.cornerRadius = 10
         bgPhoto.clipsToBounds = true
         

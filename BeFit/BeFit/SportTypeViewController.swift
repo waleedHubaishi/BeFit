@@ -35,6 +35,9 @@ class SportTypeViewController: UIViewController {
         jogButton.clipsToBounds = true
         marathonButton.clipsToBounds = true
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Sport Type", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+
+        
         bgPicture.layer.cornerRadius = 10
         bgPicture.clipsToBounds = true
         
